@@ -1,0 +1,26 @@
+<assembly>
+    <id>beanstalk</id>
+    
+    <formats>
+        <format>dir</format>
+        <format>zip</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+    
+    <!--  START SNIPPET: fileSets  -->
+    <fileSets>
+        <fileSet>
+            <directory>src/main/elasticbeanstalk/</directory>
+            <outputDirectory>.</outputDirectory>
+            <includes>
+                <include>Dockerrun.aws.json</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>target/docker/${project.artifactId}/${project.artifactId}/${project.version}/build/</directory>
+            <outputDirectory>.</outputDirectory>
+        </fileSet>
+    </fileSets>
+    <!--  END SNIPPET: fileSets  -->
+</assembly>
