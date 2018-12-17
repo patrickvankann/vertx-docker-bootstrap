@@ -6,9 +6,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import io.vertx.core.Vertx;
+import io.vertx.core.buffer.Buffer;
 import io.vertx.ext.unit.Async;
 import io.vertx.ext.unit.TestContext;
 import io.vertx.ext.unit.junit.VertxUnitRunner;
+import io.vertx.ext.web.client.HttpResponse;
+import io.vertx.ext.web.client.WebClient;
 
 @RunWith(VertxUnitRunner.class)
 public class HttpVerticleTest {
@@ -27,17 +30,23 @@ public class HttpVerticleTest {
 		vertx.close(context.asyncAssertSuccess());
 	}
 
+	
 	@Test
-	public void testMyApplication(TestContext context) {
+	public void whenHttpRequestThenItReturnsOK(final TestContext context) {
 		final Async async = context.async();
 
-		vertx.createHttpClient().getNow(8080, "localhost", "/",
-				response -> {
-					context.assertTrue(response.statusCode() == 200);
-					response.handler(body -> {
-						context.assertTrue(body.toString().contains("Hello"));
-						async.complete();
-					});
-				});
+		final WebClient client = WebClient.create(vertx);
+		
+		client
+			.get(8080, "localhost", "/")
+			.send(ar -> {
+				context.assertTrue(ar.succeeded());
+				HttpResponse<Buffer> response = ar.result();
+				context.assertTrue(response.statusCode() == 200);
+				Buffer body = response.body();
+				context.assertTrue(body.toString().contains("Hello"));
+				async.complete();
+			});
 	}
+	
 }
