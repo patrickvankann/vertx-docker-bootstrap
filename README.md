@@ -1,7 +1,7 @@
-#Vert.x Docker Bootstrap
+# Vert.x Docker Bootstrap
 A starter project for building Vert.x apps using the [Fabric8 Maven Docker Plugin](http://fabric8.io/guide/mavenPlugin.html) and Amazon Elastic Beanstalk. The Vert.x application is packaged as a "fat jar" and deployed within a Docker image derived from the standard java8 image.
 
-##Structure
+## Structure
 The Fabric8 Docker Maven Plugin configurations are stored in 
 > src/main/fabric8
 
@@ -27,7 +27,7 @@ The basic "Hello, world" Vert.x application is in
 An integration test using Vertx Unit is in 
 > src/test/java/net/eusashead/vertx/docker/HttpVerticleTest.java
 
-##Building
+## Building
 The construction of Docker images and Elastic Beanstalk deployment zip files is bound to the Maven "package" goal. So executing
 > mvn clean package
 
@@ -40,7 +40,7 @@ To run the Docker image locally in a Docker host, use:
 ## Deploying
 TODO use a plugin to push the Elastic Beanstalk zip file to Amazon.
 
-##Customising
+## Customising
 If you clone this project as a starting point, there are several places where configuration changes should be made.
 
 ### Elastic Beanstalk
