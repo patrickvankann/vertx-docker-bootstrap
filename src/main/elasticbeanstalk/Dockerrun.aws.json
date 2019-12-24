@@ -1,7 +1,0 @@
-{
-  "AWSEBDockerrunVersion": "1",
-  "Logging": "/tmp/docker-bootstrap",
-  "Image": {
-  	"Update": "false"
-  }
-}
