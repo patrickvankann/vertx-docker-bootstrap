@@ -8,18 +8,20 @@ import io.vertx.core.json.JsonObject;
 
 public class HttpVerticle extends AbstractVerticle {
 
+	// Get the name of the Verticle
+	private static final String NAME = ManagementFactory.getRuntimeMXBean().getName();
+	
 	@Override
 	public void start(final Promise<Void> fut) {
 		
-		final String name = ManagementFactory.getRuntimeMXBean().getName();
-
+		// Return the name in the response body
 		vertx
 		.createHttpServer()
 		.requestHandler(r -> {
 			
             JsonObject entity = new JsonObject()
                     .put("message", "Hello, world!")
-                    .put("servedBy", name);
+                    .put("servedBy", NAME);
             r.response().end(entity.encode());
 
 		})
