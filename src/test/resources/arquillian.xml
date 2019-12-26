@@ -4,7 +4,14 @@
   xsi:schemaLocation="http://jboss.org/schema/arquillian
   http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
     <extension qualifier="kubernetes">
-    	<!-- Arquillian configuration -->
+    	<!-- Use specified namespace instead of generating one -->
         <!-- <property name="namespace.use.existing">default</property> -->
+        
+        <!-- Dependencies for this service 
+        <property name="env.dependencies">
+            file:src/test/resources/dependency.yml
+        </property>
+        -->
+        
     </extension>
 </arquillian>
