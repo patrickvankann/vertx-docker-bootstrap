@@ -164,7 +164,7 @@
                         <config>
                             <fmp-service>
                                 <expose>true</expose>
-                                <type>NodePort</type>
+                                <type>LoadBalancer</type>
                                 <port>8080:8080</port> 
                             </fmp-service>
                         </config>
