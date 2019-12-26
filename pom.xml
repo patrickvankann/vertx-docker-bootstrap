@@ -122,10 +122,10 @@
                 <version>${fabric8.version}</version>
                 <executions>
                     <execution>
-                        <id>build</id>
-                        <phase>package</phase>
                         <goals>
+                            <goal>resource</goal>
                             <goal>build</goal>
+                            <goal>deploy</goal>
                         </goals>
                     </execution>
                 </executions>
