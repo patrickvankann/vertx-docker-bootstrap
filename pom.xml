@@ -11,7 +11,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
-        <vertx.version>3.8.4</vertx.version>
+        <vertx.version>4.5.24</vertx.version>
         <fabric8.version>4.3.1</fabric8.version>
     </properties>
 
